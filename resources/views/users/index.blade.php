@@ -40,7 +40,18 @@
                                         {{ $user->email }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-4">
-                                        Edit / Delete
+                                        <a href="{{ route('users.edit', $user) }}" class="underline">Edit</a>
+                                        |
+                                        <form   
+                                            action="{{ route('users.destroy', $user) }}" 
+                                            class="inline-block"
+                                            method="post"
+                                            onsubmit="return confirm('Are you sure?')">
+                                            @csrf
+                                            @method('delete')
+                                            <button type="submit" class="text-red-500 underline">Delete</button>
+                                        </form>
+                                        
                                     </td>
                                 </tr>
                             @endforeach
