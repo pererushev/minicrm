@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Create User') }}
+            {{ __('Добавить пользователя') }}
         </h2>
     </x-slot>
 
@@ -14,14 +14,14 @@
                 
                         <!-- First Name -->
                         <div>
-                            <x-input-label for="first_name" :value="__('First Name')" />
+                            <x-input-label for="first_name" :value="__('Имя')" />
                             <x-text-input id="first_name" class="block mt-1 w-full" type="text" name="first_name" :value="old('first_name')" required autofocus autocomplete="first_name" />
                             <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
                         </div>
                 
                         <!-- Last Name -->
                         <div class="mt-4">
-                            <x-input-label for="last_name" :value="__('Last Name')" />
+                            <x-input-label for="last_name" :value="__('Фамилия')" />
                             <x-text-input id="last_name" class="block mt-1 w-full" type="text" name="last_name" :value="old('last_name')" required autofocus autocomplete="last_name" />
                             <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
                         </div>
@@ -35,7 +35,7 @@
                 
                         <!-- Password -->
                         <div class="mt-4">
-                            <x-input-label for="password" :value="__('Password')" />
+                            <x-input-label for="password" :value="__('Пароль')" />
                 
                             <x-text-input id="password" class="block mt-1 w-full"
                                             type="password"
@@ -47,7 +47,7 @@
                 
                         <!-- Confirm Password -->
                         <div class="mt-4">
-                            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+                            <x-input-label for="password_confirmation" :value="__('Подтвердить пароль')" />
                 
                             <x-text-input id="password_confirmation" class="block mt-1 w-full"
                                             type="password"
@@ -58,7 +58,7 @@
                 
                         <div class="mt-4">
                             <x-primary-button class="mt-4">
-                                {{ __('Save') }}
+                                {{ __('Сохранить') }}
                             </x-primary-button>
                         </div>
                     </form>
