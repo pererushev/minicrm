@@ -11,31 +11,35 @@
                 <div class="p-6 text-gray-900">
                     <form method="POST" action="{{ route('clients.store') }}">
                         @csrf
-                
+                        
+                        <h3 class="text-xl font-semibold mb-4">Контактное лицо</h3>
+
                         <!-- Имя контакта -->
                         <div>
-                            <x-input-label for="contact_name" :value="__('Контактное лицо')" />
+                            <x-input-label for="contact_name" :value="__('Имя')" />
                             <x-text-input id="contact_name" class="block mt-1 w-full" type="text" name="contact_name" :value="old('contact_name')" required autofocus autocomplete="contact_name" />
                             <x-input-error :messages="$errors->get('contact_name')" class="mt-2" />
                         </div>
                 
                         <!-- Email контакта -->
                         <div class="mt-4">
-                            <x-input-label for="contact_email" :value="__('Email контактного лица')" />
+                            <x-input-label for="contact_email" :value="__('Email')" />
                             <x-text-input id="contact_email" class="block mt-1 w-full" type="email" name="contact_email" :value="old('contact_email')" required autofocus autocomplete="contact_email" />
                             <x-input-error :messages="$errors->get('contact_email')" class="mt-2" />
                         </div>
                 
                         <!-- Номер контакта -->
                         <div class="mt-4">
-                            <x-input-label for="contact_phone_number" :value="__('Номер контакта')" />
+                            <x-input-label for="contact_phone_number" :value="__('Телефон')" />
                             <x-text-input id="contact_phone_number" class="block mt-1 w-full" type="text" name="contact_phone_number" :value="old('contact_phone_number')" required autocomplete="username" />
                             <x-input-error :messages="$errors->get('contact_phone_number')" class="mt-2" />
                         </div>
+
+                        <h3 class="text-xl font-semibold mb-4 mt-4">Компания</h3>
                 
                         <!-- Название компании -->
                         <div class="mt-4">
-                            <x-input-label for="company_name" :value="__('Название компании')" />
+                            <x-input-label for="company_name" :value="__('Название')" />
                 
                             <x-text-input id="company_name" class="block mt-1 w-full"
                                             type="text"
@@ -47,7 +51,7 @@
 
                         <!-- Адрес компании -->
                         <div class="mt-4">
-                            <x-input-label for="company_address" :value="__('Адрес компании')" />
+                            <x-input-label for="company_address" :value="__('Адрес')" />
                 
                             <x-text-input id="company_address" class="block mt-1 w-full"
                                             type="text"
