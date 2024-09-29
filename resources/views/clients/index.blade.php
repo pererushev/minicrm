@@ -40,7 +40,7 @@
                                         {{ $client->contact_email }}
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-4">
-                                        <a href="{{ route('clients.edit', $client) }}" class="underline">Edit</a>
+                                        <a href="{{ route('clients.edit', $client) }}" class="underline">Редактировать</a>
                                         |
                                         <form   
                                             action="{{ route('clients.destroy', $client) }}" 
@@ -49,7 +49,7 @@
                                             onsubmit="return confirm('Are you sure?')">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="text-red-500 underline">Delete</button>
+                                            <button type="submit" class="text-red-500 underline">Удалить</button>
                                         </form>
                                         
                                     </td>

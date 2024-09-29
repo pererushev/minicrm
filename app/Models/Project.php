@@ -12,6 +12,15 @@ class Project extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $fillable = [
+        'title',
+        'description',
+        'user_id',
+        'client_id',
+        'deadline_at',
+        'status'
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

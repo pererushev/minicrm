@@ -21,7 +21,7 @@ class ProjectController extends Controller
     {
         $projects = Project::with(['user', 'client'])->paginate(10);
 
-        return view('projects.index', compact($projects));
+        return view('projects.index', compact('projects'));
     }
 
     /**
@@ -48,24 +48,30 @@ class ProjectController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Project $project)
+    public function edit(Project $project): View
     {
-        //
+        $users = User::select('id', 'first_name', 'last_name')->get();
+        $clients = Client::select('id', 'company_name')->get();
+        //dd($project->status);
+        return view('projects.edit', compact('project', 'users', 'clients'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProjectRequest $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project): RedirectResponse
     {
-        //
+        $project->update($request->validated());
+        return redirect()->route('projects.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Project $project)
+    public function destroy(Project $project): RedirectResponse
     {
-        //
+        $project->delete();
+
+        return redirect()->route('projects.index');
     }
 }

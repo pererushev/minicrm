@@ -23,6 +23,9 @@
                     <x-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">
                         {{ __('Клиенты') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.*')">
+                        {{ __('Проекты') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -43,7 +46,7 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Профиль') }}
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -53,7 +56,7 @@
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Выход') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
@@ -80,11 +83,14 @@
             </x-responsive-nav-link>
             @role(\App\RoleEnum::ADMIN)
                 <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
-                    {{ __('Users') }}
+                    {{ __('Пользователи') }}
                 </x-responsive-nav-link>
             @endrole
             <x-responsive-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">
-                {{ __('Clients') }}
+                {{ __('Клиенты') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.*')">
+                {{ __('Проекты') }}
             </x-responsive-nav-link>
         </div>
 
@@ -97,7 +103,7 @@
 
             <div class="mt-3 space-y-1">
                 <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
+                    {{ __('Профиль') }}
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->
@@ -107,7 +113,7 @@
                     <x-responsive-nav-link :href="route('logout')"
                             onclick="event.preventDefault();
                                         this.closest('form').submit();">
-                        {{ __('Log Out') }}
+                        {{ __('Выход') }}
                     </x-responsive-nav-link>
                 </form>
             </div>
