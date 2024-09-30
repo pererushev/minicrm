@@ -41,6 +41,7 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-4">
                                         <a href="{{ route('clients.edit', $client) }}" class="underline">Редактировать</a>
+                                        @can(\App\PermissionEnum::DELETE_CLIENTS->value)
                                         |
                                         <form   
                                             action="{{ route('clients.destroy', $client) }}" 
@@ -50,7 +51,9 @@
                                             @csrf
                                             @method('delete')
                                             <button type="submit" class="text-red-500 underline">Удалить</button>
-                                        </form>
+                                        </form>    
+                                        @endcan
+                                        
                                         
                                     </td>
                                 </tr>

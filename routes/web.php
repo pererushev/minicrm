@@ -7,6 +7,7 @@ use App\Http\Controllers\{
     ProjectController,
     TaskController
 };
+use App\PermissionEnum;
 use App\RoleEnum;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +22,7 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
 
     Route::resource('users', UserController::class)
-        ->middleware(['role:' . RoleEnum::ADMIN->value]);
+        ->middleware('can:' . PermissionEnum::MANAGE_USERS->value);
     Route::resource('clients', ClientController::class);
     Route::resource('projects', ProjectController::class);
     Route::resource('tasks', TaskController::class);

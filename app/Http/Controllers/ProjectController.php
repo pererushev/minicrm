@@ -9,7 +9,9 @@ use App\Models\{
     User,
     Client
 };
+use App\PermissionEnum;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\View\View;
 
 class ProjectController extends Controller
@@ -70,6 +72,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project): RedirectResponse
     {
+        Gate::authorize(PermissionEnum::DELETE_PROJECTS->value);
+
         $project->delete();
 
         return redirect()->route('projects.index');

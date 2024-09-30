@@ -15,11 +15,12 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    @role(\App\RoleEnum::ADMIN)
+                    @can(\App\PermissionEnum::MANAGE_USERS->value)
                         <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
                             {{ __('Пользователи') }}
                         </x-nav-link>
-                    @endrole
+                    @endcan
+                    
                     <x-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">
                         {{ __('Клиенты') }}
                     </x-nav-link>
@@ -84,11 +85,12 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-            @role(\App\RoleEnum::ADMIN)
+            @can(\App\PermissionEnum::MANAGE_USERS->value)
                 <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')">
                     {{ __('Пользователи') }}
                 </x-responsive-nav-link>
-            @endrole
+            @endcan
+            
             <x-responsive-nav-link :href="route('clients.index')" :active="request()->routeIs('clients.*')">
                 {{ __('Клиенты') }}
             </x-responsive-nav-link>

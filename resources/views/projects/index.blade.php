@@ -53,6 +53,7 @@
                                     </td>
                                     <td class="px-6 py-4 whitespace-no-wrap text-sm leading-4">
                                         <a href="{{ route('projects.edit', $project) }}" class="underline">Редактировать</a>
+                                        @can(\App\PermissionEnum::DELETE_PROJECTS->value)
                                         |
                                         <form   
                                             action="{{ route('projects.destroy', $project) }}" 
@@ -63,7 +64,7 @@
                                             @method('delete')
                                             <button type="submit" class="text-red-500 underline">Удалить</button>
                                         </form>
-                                        
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach

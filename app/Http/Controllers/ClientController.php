@@ -9,6 +9,8 @@ use App\Http\Requests\{
     StoreClientRequest,
     UpdateClientRequest
 };
+use App\PermissionEnum;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Redirect;
 
 class ClientController extends Controller
@@ -62,6 +64,7 @@ class ClientController extends Controller
      */
     public function destroy(Client $client): RedirectResponse
     {
+        Gate::authorize(PermissionEnum::DELETE_CLIENTS->value);
         $client->delete();
         return redirect()->route('clients.index');
     }
