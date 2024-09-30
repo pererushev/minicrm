@@ -4,7 +4,8 @@ use App\Http\Controllers\{
     ProfileController,
     UserController,
     ClientController,
-    ProjectController
+    ProjectController,
+    TaskController
 };
 use App\RoleEnum;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,7 @@ Route::middleware('auth')->group(function () {
         ->middleware(['role:' . RoleEnum::ADMIN->value]);
     Route::resource('clients', ClientController::class);
     Route::resource('projects', ProjectController::class);
+    Route::resource('tasks', TaskController::class);
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
